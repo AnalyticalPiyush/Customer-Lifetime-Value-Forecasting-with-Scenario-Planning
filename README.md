@@ -78,7 +78,5 @@ This project applies real e-commerce data to forecast Customer Lifetime Value us
 
 
 
-<img width="1224" height="689" alt="Screenshot 2025-09-11 at 13 33 23" src="https://github.com/user-attachments/assets/db74fda3-d08f-4a61-8f7f-3f69b311b9b1" />
-
 
 
