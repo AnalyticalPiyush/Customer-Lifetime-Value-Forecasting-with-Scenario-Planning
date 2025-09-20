@@ -1,75 +1,84 @@
 # Customer Lifetime Value Forecasting with Scenario Planning
 
-## Project Overview
-This project develops **Customer Lifetime Value (CLV) models** using real e-commerce data (Online Retail II, UCI/Kaggle).  
-The aim is to show how not all customers are equally valuable and how businesses can forecast long-term value, segment customers, and test strategic what-if scenarios.  
-
-The project combines:
-- **Data Cleaning & Enrichment** (channels, CAC, loyalty, seasonality)
-- **Exploratory Analysis** (cohort retention, RFM segmentation, Pareto rule)
-- **CLV Modelling** (heuristic + probabilistic BG/NBD + Gamma-Gamma)
-- **Scenario Planning** (retention uplift, loyalty programs, pricing strategy, channel mix)
+## 1. Business Problem
+Companies spend heavily on acquiring new customers, but not all customers generate equal value. Many churn after one purchase, while a smaller group remains loyal and drives the majority of long-term revenue. Without forecasting and segmentation, businesses risk misallocating marketing budgets and underinvesting in high-value segments.
 
 ---
 
-## Methodology
+## 2. Objective
+- Forecast Customer Lifetime Value (CLV) at the customer and segment level.  
+- Enrich data with business attributes such as acquisition channel, CAC, loyalty membership, and seasonality.  
+- Test strategic scenarios (retention uplift, loyalty effects, pricing changes, acquisition mix) to identify the most impactful levers for growth.  
+- Deliver actionable insights via dashboards and a business-ready report.
 
-### 1. Data Preparation
-- Removed cancellations and non-positive transactions.  
-- Calculated revenue per order.  
-- Added synthetic business features:  
-- Acquisition channel (Paid Search, Organic, Social, Referral, Email)  
-- CAC (channel-specific acquisition cost)  
-- Loyalty flag (~25% customers as members)  
-- Seasonality index (holiday uplift, January dip)  
+---
 
-### 2. Exploratory Analysis
-- Cohort Analysis:** measured retention across acquisition months.  
-- RFM Segmentation:** grouped customers into Champions, Loyal, Potential Loyalists, At Risk, and Lost.  
-- Pareto Analysis:** confirmed the top 20% of customers generated ~77% of revenue.  
+## 3. Requirements
 
-### 3. CLV Modelling
-- Heuristic CLV: Orders × Average Order Value × Survival × Discounting.  
-- Advanced CLV:  
-  - BG/NBD (purchase frequency)  
-  - Gamma-Gamma (average spend per order)  
-  - Combined into 12-month CLV forecasts.  
+### Business Requirements
+- Identify which customers and channels drive the most long-term value.  
+- Quantify ROI of retention and loyalty initiatives.  
+- Simulate strategies before making marketing or pricing investments.  
 
-### 4. Scenario Planning
-Tested what-if strategies:
-- Retention uplift (reduce churn by 10%)  
-- Loyalty effect (increase frequency by 15% for members)  
-- Pricing strategy (increase AOV by 5%)  
-- Acquisition mix (shift spend towards Organic)  
+### Technical Requirements
+- Data cleaning (remove cancellations, invalid IDs, non-positive transactions).  
+- Feature engineering (revenue, acquisition channel, CAC, loyalty flags, seasonality).  
+- Exploratory analysis: Cohort retention, RFM segmentation, Pareto 80/20.  
+- CLV modelling: heuristic formula and advanced BG/NBD + Gamma-Gamma (Lifetimes).  
+- Scenario planning: parameterised simulations for retention, frequency, AOV, and channel mix.  
+- Delivery through Power BI dashboard and GitHub repository.
+
+---
+
+## 4. Process
+1. **Data Preparation**: Cleaned Online Retail II dataset; created enriched features.  
+2. **Exploratory Analysis**: Cohort heatmaps, RFM segmentation, and Pareto distribution to highlight high-value customers.  
+3. **CLV Modelling**:  
+   - Heuristic: Orders × AOV × Survival × Discounting.  
+   - Probabilistic: BG/NBD for purchase frequency + Gamma-Gamma for spend.  
+4. **Scenario Planning**: Simulated what-if scenarios for churn reduction, loyalty frequency uplift, price changes, and acquisition mix.  
+5. **Deliverables**: Python notebooks, enriched datasets, Power BI dashboard, and slide deck.
+
+---
+
+## 5. Outcome
+- Clear segmentation of customers into Low, Mid, High, and Elite CLV groups.  
+- Insights on retention patterns across cohorts, with stronger performance from holiday acquisitions.  
+- Robust 12-month CLV forecasts per customer, channel, and loyalty segment.  
+- Scenario planner demonstrating financial impact of strategic levers.
+
+---
+
+## 6. Results / Insights
+- **Top 20% of customers generated ~77% of revenue.**  
+- **Loyalty members (24% of customers) contributed 76% of CLV.**  
+- **Holiday cohorts delivered up to £120 higher CLV than Jan cohorts.**  
+- **Retention uplift (+10%) created the largest CLV increase, more than pricing or frequency changes.**
+<img width="1224" height="689" alt="Screenshot 2025-09-11 at 13 33 23" src="https://github.com/user-attachments/assets/db74fda3-d08f-4a61-8f7f-3f69b311b9b1" />
+---
+
+## 7. Business Value / Recommendations
+- Focus retention efforts on Elite and High-value customers where marginal gains drive disproportionate returns.  
+- Expand loyalty programs to convert Potential Loyalists into Loyal/Champions.  
+- Prioritize acquisition through Organic and Paid Search channels, which deliver the strongest CLV relative to CAC.  
+- Use CLV forecasting to guide marketing budget allocation, ensuring spend aligns with long-term customer profitability.
+
+---
+
+## 8. Summary
+This project applies real e-commerce data to forecast Customer Lifetime Value using both heuristic and probabilistic models. By combining exploratory analysis, advanced CLV modelling, and scenario planning, it demonstrates how businesses can quantify customer value, test strategic initiatives, and allocate resources intelligently. Results showed that loyalty and retention are the strongest levers for long-term growth, highlighting the importance of customer-centric strategies in retail and e-commerce.
+
+---
+
+## 📊 Tech Stack
+- **Python:** Pandas, NumPy, Matplotlib, Seaborn, Lifetimes, Scikit-learn  
+- **Visualization:** Power BI 
+- **Data Handling:** OpenPyXL (Excel/CSV I/O)  
+- **Version Control:** Git, GitHub  
 
 
-##  Key Insights
-- Top 20% of customers contributed ~77% of portfolio revenue.**  
-- Loyalty members generated 76% of CLV despite being only 24% of customers.**  
-- Holiday cohorts retained better and had higher CLV than Jan–May cohorts.**  
-- Retention improvement (+10%) delivered the biggest uplift in CLV, more than pricing or frequency changes.**
 
-
-##  Deliverables
-- Power BI Dashboard**: Segmentation, retention curves, Pareto chart, and interactive scenario sliders.  
-- Slide Deck**: Problem, methodology, insights, and recommendations.  
-- GitHub Repo**: Full Python notebooks, cleaned datasets, and scenario planner functions.
 <img width="1224" height="689" alt="Screenshot 2025-09-11 at 13 33 23" src="https://github.com/user-attachments/assets/db74fda3-d08f-4a61-8f7f-3f69b311b9b1" />
 
 
 
-- **GitHub Repository:**  
-  - Python notebooks for cleaning, analysis, CLV modelling, and scenario planning  
-  - Exported CSVs for Power BI  
-  - README with business + technical explanation  
-
-##  Tech Stack
-- Python:** pandas, numpy, matplotlib, seaborn, lifetimes  
-- BI Tools:** Power BI / Tableau    
-- Data:** Online Retail II dataset (UCI/Kaggle), enriched with synthetic features  
-
- ## Recommendations
-- Prioritize retention for Elite and High-value customers.
-- Reinforce loyalty programs for Potential Loyalists.
-- Rebalance acquisition spend towards Organic and Paid Search.
-- Use CLV forecasts for smarter budgeting and targeting.
